@@ -12,7 +12,10 @@ const FriendList = () => {
           Authorization: token
         }
       })
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res);
+        setFriends(res.data);
+      })
       .catch(err => console.log(err.response));
   }, []);
   return <div>FriendList</div>;
