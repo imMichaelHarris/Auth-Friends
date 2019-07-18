@@ -29,7 +29,9 @@ export default withFormik({
     console.log(values);
     axiosWithAuth
       .post("/login", values)
-      .then(res => console.log(res))
+      .then(res => {
+          localStorage.setItem('token', res.data.payload)
+      })
       .catch(err => console.log(err.response));
   }
 })(Login);
