@@ -21,7 +21,7 @@ const FriendList = () => {
       })
       .catch(err => console.log(err.response));
   }, []);
-
+  console.log(editMode, friendToEdit);
   return (
     <div>
       {friends.map(friend => (
@@ -32,7 +32,12 @@ const FriendList = () => {
           setFriendToEdit={setFriendToEdit}
         />
       ))}
-      <FriendForm friends={friends} addFriend={setFriends} />
+      <FriendForm
+        friends={friends}
+        addFriend={setFriends}
+        editMode={editMode}
+        friendToEdit={friendToEdit}
+      />
     </div>
   );
 };
