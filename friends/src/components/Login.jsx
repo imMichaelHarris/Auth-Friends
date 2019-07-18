@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { withFormik, Form, Field } from "formik";
 import { axiosWithAuth } from "../utility/axiosWithAuth";
 
 const Login = () => {
+  const [isLoading, setIsLoading] = useState();
   return (
     <div>
       Login
@@ -30,7 +31,7 @@ export default withFormik({
     axiosWithAuth
       .post("/login", values)
       .then(res => {
-          localStorage.setItem('token', res.data.payload)
+        localStorage.setItem("token", res.data.payload);
       })
       .catch(err => console.log(err.response));
   }
