@@ -22,11 +22,15 @@ const FriendList = () => {
       .catch(err => console.log(err.response));
   }, []);
 
-
   return (
     <div>
       {friends.map(friend => (
-        <Friend friend={friend} key={friend.id} />
+        <Friend
+          friend={friend}
+          key={friend.id}
+          setEditMode={setEditMode}
+          setFriendToEdit={setFriendToEdit}
+        />
       ))}
       <FriendForm friends={friends} addFriend={setFriends} />
     </div>
