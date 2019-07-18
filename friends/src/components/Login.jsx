@@ -4,7 +4,6 @@ import Loader from "react-loader-spinner";
 import { axiosWithAuth } from "../utility/axiosWithAuth";
 
 const Login = ({ isSubmitting }) => {
-  console.log(isSubmitting);
   return (
     <div>
       Login
@@ -15,11 +14,11 @@ const Login = ({ isSubmitting }) => {
         <label>Password</label>
         <Field name="password" type="password" placeholder="Password" />
 
-        {isSubmitting ? (
+        {/* {isSubmitting ? (
           <Loader type="TailSpin" color="#somecolor" height={20} width={20} />
-        ) : (
+        ) : ( */}
           <button>Login</button>
-        )}
+        {/* )} */}
       </Form>
     </div>
   );
@@ -32,15 +31,16 @@ export default withFormik({
       password: password || ""
     };
   },
-  handleSubmit(values, { setSubmitting }) {
+  handleSubmit(values, formikBag) {
     axiosWithAuth
       .post("/login", values)
       .then(res => {
         localStorage.setItem("token", res.data.payload);
+        formikBag.props.history.push("/friends");
       })
       .catch(err => {
-          setSubmitting(false)
-        console.log(err.response);
+        // setSubmitting(false);
+        console.log(err);
       });
   }
 })(Login);
