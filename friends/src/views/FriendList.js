@@ -25,7 +25,7 @@ const FriendList = () => {
       {friends.map(friend => (
         <Friend friend={friend} key={friend.id} />
       ))}
-      <FriendForm />
+      <FriendForm friends={friends} />
     </div>
   );
 };

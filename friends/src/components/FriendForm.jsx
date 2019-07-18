@@ -1,5 +1,6 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
+import { axiosWithAuth } from "../utility/axiosWithAuth";
 
 const FriendForm = () => {
   return (
@@ -22,7 +23,24 @@ export default withFormik({
     return {
       name: "",
       age: "",
-      email:  ""
+      email: ""
     };
+  },
+  handleSubmit(values) {
+    axiosWithAuth
+      .post(
+        "/friends",
+        values,
+
+        {
+          headers: {
+            Authorization: localStorage.getItem("token")
+          }
+        }
+      )
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => console.log(err.response));
   }
 })(FriendForm);
