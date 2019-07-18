@@ -8,8 +8,8 @@ const Login = () => {
       Login
       <Form>
         <legend>Logn</legend>
-        <label>Email</label>
-        <Field name="email" type="email" placeholder="Email" />
+        <label>Username</label>
+        <Field name="username" type="text" placeholder="Username" />
         <label>Password</label>
         <Field name="password" type="password" placeholder="Password" />
         <button>Login</button>
@@ -19,16 +19,16 @@ const Login = () => {
 };
 
 export default withFormik({
-  mapPropsToValues({ email, password }) {
+  mapPropsToValues({ username, password }) {
     return {
-      email: email || "something@yah",
+      username: username || "",
       password: password || ""
     };
   },
   handleSubmit(values) {
     console.log(values);
     axiosWithAuth
-      .post("/login")
+      .post("/login", values)
       .then(res => console.log(res))
       .catch(err => console.log(err.response));
   }
