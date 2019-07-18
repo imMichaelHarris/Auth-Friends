@@ -2,7 +2,8 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import { axiosWithAuth } from "../utility/axiosWithAuth";
 
-const Login = (props) => {
+const Login = ({ isSubmitting }) => {
+    console.log(isSubmitting)
   return (
     <div>
       Login
@@ -30,7 +31,6 @@ export default withFormik({
       .post("/login", values)
       .then(res => {
         localStorage.setItem("token", res.data.payload);
-
       })
       .catch(err => console.log(err.response));
   }
