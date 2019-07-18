@@ -1,33 +1,108 @@
+
 .App {
   text-align: center;
+  margin: 0 auto;
+  width: 900px;
+  position: relative;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
+.friend {
+  border: 4px solid #000;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px #000;
+  background: #a8c0ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3f2b96,
+    #a8c0ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #3f2b96,
+    #a8c0ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 450px;
+  height: 185px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  margin: 10px;
+}
+.friend aside {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
+  position: relative;
 }
-
-.App-link {
-  color: #61dafb;
+.friend aside button {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
 }
+.friend .main {
+  font-size: 1.5rem;
+  align-self: center;
+  width: 40%;
+}
+.friend-form {
+  display: flex;
+  background: #000;
+  border-radius: 20px;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  position: fixed;
+  top: 100px;
+  right: 0;
+  width: 400px;
+  height: 400px;
+}
+.friend-form input {
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  display: block;
+  transition: 0.3s ease-out;
+}
+.friend-form input:focus {
+  outline: none;
+  padding: 20px 25px;
+}
+.friend-form button {
+  letter-spacing: 2px;
+  color: #fff;
+  width: 200px;
+  margin: 0 auto;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 50px;
+  padding: 10px;
+  transition: 0.3s ease-in-out;
+  background: #0052d4; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #6fb1fc,
+    #4364f7,
+    #0052d4
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #6fb1fc,
+    #4364f7,
+    #0052d4
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.friend-form button:focus {
+  outline: none;
+}
+.friend-form button:hover {
+  transform: scale(1.05) translateY(-5px);
+  cursor: pointer;
 }

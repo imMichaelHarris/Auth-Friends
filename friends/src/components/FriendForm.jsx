@@ -5,12 +5,9 @@ import { axiosWithAuth } from "../utility/axiosWithAuth";
 const FriendForm = () => {
   return (
     <div>
-      <Form>
-        <label>Name</label>
+      <Form className="friend-form">
         <Field name="name" placeholder="Name" />
-        <label>Age</label>
         <Field name="age" placeholder="Age" type="Number" />
-        <label>Email</label>
         <Field name="email" type="email" placeholder="Email" />
         <button>Add Friend</button>
       </Form>
@@ -19,12 +16,22 @@ const FriendForm = () => {
 };
 
 export default withFormik({
-  mapPropsToValues() {
-    return {
-      name: "",
-      age: "",
-      email: ""
-    };
+  mapPropsToValues(props) {
+    console.log(props.friendToEdit);
+    if (props.editMode) {
+      console.log("editmode");
+      return {
+        name: "edit",
+        age: "",
+        email: ""
+      };
+    } else {
+      return {
+        name: "",
+        age: "",
+        email: ""
+      };
+    }
   },
   handleSubmit(values, form) {
     axiosWithAuth

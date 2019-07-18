@@ -8,6 +8,7 @@ import PrivateRoute from "./utility/PrivateRoute";
 function App() {
   return (
     <div className="App">
+      <h1>Friends</h1>
       <Route exact path="/" component={Login} />
       <PrivateRoute path="/friends" component={FriendList} />
     </div>
