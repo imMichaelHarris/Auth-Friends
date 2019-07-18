@@ -26,20 +26,15 @@ export default withFormik({
       email: ""
     };
   },
-  handleSubmit(values) {
+  handleSubmit(values, form) {
     axiosWithAuth
-      .post(
-        "/friends",
-        values,
-
-        {
-          headers: {
-            Authorization: localStorage.getItem("token")
-          }
+      .post("/friends", values, {
+        headers: {
+          Authorization: localStorage.getItem("token")
         }
-      )
+      })
       .then(res => {
-        console.log(res);
+        form.props.addFriend(res.data);
       })
       .catch(err => console.log(err.response));
   }
