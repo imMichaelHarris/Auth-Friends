@@ -17,4 +17,12 @@ const FriendForm = () => {
   );
 };
 
-export default withFormik()(FriendForm);
+export default withFormik({
+  mapPropsToValues() {
+    return {
+      name: "",
+      age: "",
+      email:  ""
+    };
+  }
+})(FriendForm);
