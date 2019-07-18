@@ -21,11 +21,15 @@ const Login = () => {
 export default withFormik({
   mapPropsToValues({ email, password }) {
     return {
-      email: email || "",
+      email: email || "something@yah",
       password: password || ""
     };
   },
   handleSubmit(values) {
     console.log(values);
+    axiosWithAuth
+      .post("/login")
+      .then(res => console.log(res))
+      .catch(err => console.log(err.response));
   }
 })(Login);
