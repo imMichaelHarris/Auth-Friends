@@ -11,6 +11,7 @@ const Login = () => {
                 <Field name="email" type="email" placeholder="Email" />
                 <label>Password</label>
                 <Field name="password" type="password" placeholder="Password" />
+                <button>Login</button>
             </Form>
         </div>
     );
@@ -22,5 +23,8 @@ export default withFormik({
             email: email || "",
             password: password || ""
         }
+    },
+    handleSubmit(values){
+        console.log(values)
     }
 })(Login);
