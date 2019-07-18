@@ -27,7 +27,6 @@ export default withFormik({
     };
   },
   handleSubmit(values) {
-    console.log(values);
     axiosWithAuth
       .post("/login", values)
       .then(res => {
