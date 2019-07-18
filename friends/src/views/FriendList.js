@@ -13,11 +13,11 @@ const FriendList = () => {
         }
       })
       .then(res => {
-        console.log(res);
         setFriends(res.data);
       })
       .catch(err => console.log(err.response));
   }, []);
+  console.log(friends)
   return <div>FriendList</div>;
 };
 
