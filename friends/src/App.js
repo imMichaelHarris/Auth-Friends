@@ -3,12 +3,13 @@ import { Route } from "react-router-dom";
 import Login from './components/Login'
 import FriendList from './views/FriendList'
 import "./App.css";
+import PrivateRoute from "./utility/PrivateRoute";
 
 function App() {
   return (
     <div className="App">
       <Route exact path="/" component={Login} />
-      <Route path="/friends" component={FriendList} />
+      <PrivateRoute path="/friends" component={FriendList} />
     </div>
   );
 }
