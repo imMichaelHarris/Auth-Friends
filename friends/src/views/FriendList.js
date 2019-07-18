@@ -5,6 +5,8 @@ import FriendForm from "../components/FriendForm";
 
 const FriendList = () => {
   const [friends, setFriends] = useState([]);
+  const [editMode, setEditMode] = useState();
+  const [friendToEdit, setFriendToEdit] = useState();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
