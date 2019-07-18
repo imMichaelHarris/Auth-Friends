@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import Login from './components/Login'
+import FriendList from './views/FriendList'
 import "./App.css";
 
 function App() {
